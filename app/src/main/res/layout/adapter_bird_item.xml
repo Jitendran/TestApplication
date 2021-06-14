@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="birdItem"
+            type="com.test.model.firstfragmentbird.BirdItem" />
+
+        <variable
+            name="itemClickListener"
+            type="com.test.ui.BirdItemClickListener" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@{birdItem.clicked ? @color/selectedItem : @color/white}"
+        android:onClick="@{() -> itemClickListener.cardClicked(birdItem)}"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvBirdName"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            app:profileImage="@{birdItem.imageUrl}" />
+
+        <TextView
+            android:id="@+id/tvBirdName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@{birdItem.name}"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </RelativeLayout>
+</layout>
