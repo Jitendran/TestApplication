@@ -33,7 +33,8 @@ public class Subscriber {
                     public void accept(String s) {
                         LOGS.add(s);
                         if (recyclerViewWeakReference.get() != null) {
-                            recyclerViewWeakReference.get().setAdapter(new LogViewHolderAdapter(recyclerViewWeakReference.get().getContext(), LOGS));
+                            recyclerViewWeakReference.get().setAdapter(
+                                    new LogViewHolderAdapter(recyclerViewWeakReference.get().getContext(), LOGS));
                             recyclerViewWeakReference.get().smoothScrollToPosition(LOGS.size() - 1);
                         }
                     }
